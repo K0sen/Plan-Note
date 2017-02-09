@@ -11,7 +11,7 @@ class DbConnection
     private $pdo;
     private function __construct()
     {
-        $this->pdo = new PDO('mysql: host=localhost; dbname=Kostya_task', 'root');
+        $this->pdo = new PDO('mysql: host=localhost; dbname=plan-note', 'root');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec('SET NAMES utf8');
     }

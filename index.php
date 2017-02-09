@@ -25,8 +25,13 @@
 
 <body>
     <div id="top">
-        
+        <div id="info">info</div>
+        <div id="authentication"">
+            <span id="register">Register</span>
+            <span id="log_in">Login</span>
+        </div>
     </div>
+    <hr>
     <div id="wrapper">    
 
         <?php foreach ($info as $value) : ?>
@@ -47,12 +52,3 @@
 
 </html>
 
-
-
-<!--TODO 
-top panel
-    - how it work; settings (dropdown); registration
-left panel
-
-remake: "pre", title
--->

@@ -16,10 +16,15 @@ h1 {
 }
 
 #top {
-	background-image: url(squares.jpg);
-	background-size: 80px;
-	
 	height: 40px;
+}
+
+#info {
+	float: left;
+}
+
+#authentication {
+	float: right;
 }
 
 #wrapper {
@@ -41,9 +46,24 @@ h1 {
 	word-wrap: break-word;
 	margin: 0;
 	text-align: center;
-	background-color: #ff5722;
+	background-color: red;
 	border-top-right-radius: 30%;
 	border-top-left-radius: 30%;
+}
+
+.plus {
+	cursor: pointer;
+	float: right;
+	color: black;
+	position: relative;
+	bottom: 27px;
+	right: 2px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.plus:hover {
+	color: white;
 }
 
 .task {
@@ -78,48 +98,23 @@ h1 {
 	transform: scale(0.9);
 }
 
+#input {
+	margin: 15px 7px;
+}
+
+/*title*/
 .title {
 	position: relative;
-	min-height: 25px;
-	padding: 5px;
+	min-height: 50px;
 	background: #a29e9e;
-	display: block;
-}
-
-.title > .text {
-	white-space: pre-wrap; 
-	word-wrap: break-word;
-    font-family: latha;
-    overflow: hidden;
-    padding: 2px 7px;
-	height: inherit;
-	width: inherit;
-	font-size: 17px;
-	font-weight: bold;
-}
-
-.task > .text {
-	white-space: pre-wrap; 
-	word-wrap: break-word;
-    font-family: latha;
-    overflow: hidden;
-    padding: 10px 7px;
-    min-height: 100px;
-	height: inherit;
-	width: inherit;
-	font-size: 17px;
-	font-weight: bold;
 }
 
 .minus {
+	position: absolute;
+	left: 5px;
+	height: 17px;
+	width: 17px;
 	cursor: pointer;
-	float: left;
-	position: relative;
-	bottom: 5px;
-	right: 5px;
-	width: 20px;
-	height: 20px;
-	margin-right: -30px;
 	font-size: 40px;
 	text-align: center;
 	border-radius: 50px;
@@ -131,43 +126,35 @@ h1 {
 
 .minus hr {
 	color: red;
-	margin-top: 8px;
-	margin-left: 3px;
-	width: 10px;
+	margin: 7px 0 2px 3px;
+	width: 7px;
 	border: 2px solid red;
 }
 
-.plus {
-	cursor: pointer;
-	float: right;
-	color: black;
-	position: relative;
-	bottom: 27px;
-	right: 2px;
-	font-size: 30px;
+.title > .text {
+	padding: 10px 7px 15px 7px;
+	white-space: pre-wrap; 
+	word-wrap: break-word;
+    font-family: latha;
+    overflow: hidden;
+	font-size: 17px;
 	font-weight: bold;
-}
-
-.plus:hover {
-	color: white;
 }
 
 .up {
 	position: absolute;
-	left: 279px;
-	top: -8px;
-	border: 8px solid transparent;
+	top: -5px;
+	right: 1px;
+	border: 7px solid transparent;
 	border-bottom: 13px solid lime;
-
 }
 
 .down {
 	position: absolute;
-	left: 279px;
-	bottom: -8px;
-	border: 8px solid transparent;
+	right: 1px;
+	bottom: -5px;
+	border: 7px solid transparent;
 	border-top: 13px solid lime;
-	
 }
 
 .up:hover {
@@ -178,6 +165,37 @@ h1 {
 .down:hover {
 	transform: scale(1.2);
 	cursor: pointer;
+}
+
+.edit {
+	position: absolute;
+	left: 5px;
+	bottom: 3px;
+	float: left;
+	background-image: url('edit.png');
+	background-repeat: no-repeat;
+	background-size: 15px;
+	width: 15px;
+	height: 15px;
+}
+
+.edit:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+/*Text*/
+.task > .text {
+	white-space: pre-wrap; 
+	word-wrap: break-word;
+    font-family: latha;
+    overflow: hidden;
+    padding: 15px 7px 20px 7px;
+    min-height: 100px;
+	height: inherit;
+	width: inherit;
+	font-size: 17px;
+	font-weight: bold;
 }
 
 #wait {

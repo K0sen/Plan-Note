@@ -122,6 +122,7 @@
 
 		// http://php.net/manual/ru/function.array-reduce.php
 
+
 ?>
       </p>
     </body>

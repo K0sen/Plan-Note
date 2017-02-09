@@ -6,10 +6,9 @@ function getEventType(e) {
 
 $(document).ready(function(){
 
-    //var table =  prompt('pass?') == 'will' ? 'list' : 'list_clone';
+    //var table =  prompt('pass?') == 'will' ? 'list' : 'list_clone'; // for secret table
     var table =  'list';
     show(table);
-
 
     function task(title = 'TITLE', text = 'TEXT', id = 'id') {
         var minus = "<span class='minus'><hr></span >";
@@ -18,8 +17,9 @@ $(document).ready(function(){
         var id = "<input type='hidden' value=" + id + ">";
         var up = '<span class="arrow up"></span>';
         var down = '<span class="arrow down"></span>';
+        var edit = '<span class="edit" title="edit"></span>';
 
-        var content = $("<div class='task'></div>").append("<div class='title'>" + id + minus + title + up + down + "</div>" + text);
+        var content = $("<div class='task'></div>").append("<div class='title'>" + id + minus + title + up + down + edit + "</div>" + text + edit);
 
         return content;
     }
@@ -43,7 +43,9 @@ $(document).ready(function(){
 
             });
             $('#wait').hide();
+
         }); 
+
     }
 
     var plus = "<span class='plus'>+</span >";
@@ -63,7 +65,7 @@ $(document).ready(function(){
                 var content = task('TITLE', 'TEXT', id);
                 $('#'+style_id).append(content);
 
-                $('#wrapper :input[value="'+id+'"]').siblings('.text').dblclick();
+                $('#wrapper :input[value="'+id+'"]').siblings('.edit').click();
             });
 
         } else {
@@ -90,18 +92,18 @@ $(document).ready(function(){
 
     });
 
-    $('#wrapper').on('dblclick', '.text', function (){
-        var text = $(this).text();
+    $('#wrapper').on('click', '.edit', function (){
+        var text = $(this).siblings('.text').text();
         if ($(this).parent().hasClass('title')) {
-            var cols = 32;
+            var cols = 35;
             var rows = 2;
         } else {
             var cols = 36;
             var rows = 12;
         }
 
-        $(this).before('<textarea cols="' + cols + '" rows="' + rows + '" id="input">'); 
-        $(this).remove();
+        $(this).siblings('.text').before('<textarea cols="' + cols + '" rows="' + rows + '" id="input">'); 
+        $(this).siblings('.text').remove();
 
         $('#input').focus().val(text).blur(function() {
             var newtext = $(this).val();
