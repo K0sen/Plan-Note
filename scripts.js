@@ -49,12 +49,12 @@ $(document).ready(function(){
     }
 
     var plus = "<span class='plus'>+</span >";
-    $('.main').append(plus);
+    $('.topic').append(plus);
 
 
     $('#wrapper').on('click', '.plus', function(){
 
-        var style_id = $(this).parents('.main').attr('id');
+        var style_id = $(this).parents('.topic').attr('id');
         
 
         if (confirm('Add field?')) {
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
     $('#wrapper').on('click', '.minus', function(){ 
 
-        var type_id = $(this).parents('.main').attr('id');
+        var type_id = $(this).parents('.topic').attr('id');
         var title = $(this).siblings('.text').text();
         var text = $(this).parent().siblings('pre').find('.text').text();
         var id = $(this).siblings('input').val();
@@ -196,11 +196,7 @@ $(document).ready(function(){
             }
         } else {
             alert('illegal change');
-        }
-
-
-
-        
+        }   
     });
 
 
@@ -212,6 +208,16 @@ $(document).ready(function(){
 //  console.log(items);
 // });
 
-
+$.ajax({
+		type: 'POST',
+		url: '/test.php',
+		success: function(data){
+			console.log(data);
+		},
+		error: function(){
+			alert('e');
+		}
+	});
+alert(1);
 
 });

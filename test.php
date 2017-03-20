@@ -118,11 +118,19 @@
 
 		}
 
-		table(8, 8, 'brown');
+		//table(8, 8, 'brown');
 
 		// http://php.net/manual/ru/function.array-reduce.php
 
-
+		preg_match_all(
+			'#Сшит (?P<what>\w+) не по-(?P=what)овски#',
+			"Сшит колпак не по-колпаковски",
+			$m
+			);
+		echo "<pre>";
+		var_dump($m);
+		echo "</pre>";
+		
 ?>
       </p>
     </body>

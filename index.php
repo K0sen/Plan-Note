@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>LIST</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     
 </head>
 
@@ -33,14 +34,25 @@
     </div>
     <hr>
     <div id="wrapper">    
-
+        
+        <div id="main">
         <?php foreach ($info as $value) : ?>
 
-        <div id="<?= $value['id'] ?>" class="main">
-            <h1><?= $value['type'] ?></h1> 
-        </div>
+            <div id="<?= $value['id'] ?>" class="topic">
+                <h1><?= $value['type'] ?></h1> 
+            </div>
 
         <?php endforeach; ?>
+        </div>
+
+        <div id="right">
+            <?php foreach ($info as $value) : ?>
+
+            <span class="theme"><?= $value['type'] ?></span>
+            
+            <?php endforeach; ?>
+            <span class="theme active">ACtive</span>
+        </div>
         
     </div>
 
@@ -51,4 +63,3 @@
 </body>
 
 </html>
-
