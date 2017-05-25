@@ -120,7 +120,7 @@ hr {
 /*title*/
 .title {
 	position: relative;
-	min-height: 50px;
+	min-height: 80px;
 	background: #a29e9e;
 }
 
@@ -158,26 +158,70 @@ hr {
 
 .up {
 	position: absolute;
-	top: -5px;
+	top: 17px;
 	right: 1px;
-	border: 7px solid transparent;
-	border-bottom: 13px solid lime;
+	border: 6px solid transparent;
+	border-bottom: 10px solid lime;
+}
+
+.start {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	border: 6px solid transparent;
+	border-bottom: 10px solid green;
+}
+
+.start > hr {
+	position: absolute;
+	top: -12px;
+	left: -8px;
+	margin: 7px 0 2px 3px;
+	border: 1px solid green;
+	width: 7px;
 }
 
 .down {
 	position: absolute;
 	right: 1px;
-	bottom: -5px;
-	border: 7px solid transparent;
-	border-top: 13px solid lime;
+	bottom: 17px;
+	border: 6px solid transparent;
+	border-top: 10px solid lime;
 }
 
-.up:hover {
+.end {
+	position: absolute;
+	bottom: 1px;
+	right: 1px;
+	border: 6px solid transparent;
+	border-top: 10px solid green;
+}
+
+.end > hr {
+	position: absolute;
+	bottom: -5px;
+	right: -5px;
+	margin: 7px 0 2px 3px;
+	border: 1px solid green;
+	width: 7px;
+}
+
+.up.arrow:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+.start:hover {
 	transform: scale(1.2);
 	cursor: pointer;
 }
 
 .down:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+.end:hover {
 	transform: scale(1.2);
 	cursor: pointer;
 }

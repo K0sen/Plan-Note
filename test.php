@@ -128,10 +128,15 @@
 			$m
 			);
 		echo "<pre>";
-		var_dump($m);
+		// var_dump($m);
 		echo "</pre>";
-		
+
+// Anonim classes\private const(php7) + magic, && (,) - js
+
+        
+
 ?>
       </p>
+
     </body>
 </html>

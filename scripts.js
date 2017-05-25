@@ -15,11 +15,13 @@ $(document).ready(function(){
         var title = "<p class='text'>" + title + "</p>";
         var text = "<p class='text'>" + text + "</p>";
         var id = "<input type='hidden' value=" + id + ">";
-        var up = '<span class="arrow up"></span>';
-        var down = '<span class="arrow down"></span>';
+        var start = '<span class="start" title="slide on the start"><hr></span>';
+        var end = '<span class="end" title="slide to the end"><hr></span>';
+        var up = '<span class="arrow up" title="slide up"></span>';
+        var down = '<span class="arrow down" title="slide down"></span>';
         var edit = '<span class="edit" title="edit"></span>';
 
-        var content = $("<div class='task'></div>").append("<div class='title'>" + id + minus + title + up + down + edit + "</div>" + text + edit);
+        var content = $("<div class='task'></div>").append("<div class='title'>" + id + minus + title + start + up + down + end + edit + "</div>" + text + edit);
 
         return content;
     }
@@ -218,6 +220,5 @@ $.ajax({
 			alert('e');
 		}
 	});
-alert(1);
 
 });
