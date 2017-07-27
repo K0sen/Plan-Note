@@ -89,28 +89,28 @@ hr {
 	box-shadow: 0px 2px 10px black;
 }
 
-.topic:nth-child(odd) > .task:nth-child(odd) {
+.topic:nth-child(odd) > .topic__items > .task:nth-child(odd) {
 	background: rgba(0, 120, 0, 0.1);
 }
 
-.topic:nth-child(odd) > .task:nth-child(even) {
+.topic:nth-child(odd) > .topic__items > .task:nth-child(even) {
 	background: rgba(120, 0, 0, 0.1);
 }
 
-.topic:nth-child(even) > .task:nth-child(odd) {
+.topic:nth-child(even) > .topic__items > .task:nth-child(odd) {
 	background: rgba(120, 0, 0, 0.1);
 }
 
-.topic:nth-child(even) > .task:nth-child(even) {
+.topic:nth-child(even) > .topic__items > .task:nth-child(even) {
 	background: rgba(0, 120, 0, 0.1);
 }
 
 .zoomOn {
-	transform: scale(1.05);
+	transform: scale(1.03);
 }
 
 .zoomOff {
-	transform: scale(0.9);
+	transform: scale(0.95);
 }
 
 #input {
@@ -231,7 +231,7 @@ hr {
 	left: 5px;
 	bottom: 3px;
 	float: left;
-	background-image: url('edit.png');
+	background-image: url('../img/edit.png');
 	background-repeat: no-repeat;
 	background-size: 15px;
 	width: 15px;

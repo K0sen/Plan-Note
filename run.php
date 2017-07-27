@@ -52,15 +52,14 @@
         );
         $sth->execute($params);
 
-	} elseif ( $_GET['action'] == 'replace' ) {
+	} elseif ( $_GET['action'] == 'swap' ) {
 		
-		$sth = $db->prepare("UPDATE {$_POST['table']}  SET id = '998' WHERE id = :a;
-							 UPDATE {$_POST['table']}  SET id = '999' WHERE id = :b;
-							 UPDATE {$_POST['table']}  SET id = :b WHERE id = 998;
-							 UPDATE {$_POST['table']}  SET id = :a WHERE id = 999;");
+		$sth = $db->prepare("UPDATE {$_POST['table']}  SET id = '9999' WHERE id = :a;
+							 UPDATE {$_POST['table']}  SET id = :a WHERE id = :b;
+							 UPDATE {$_POST['table']}  SET id = :b WHERE id = 9999;");
      	$params = array(
-            'a' => $_POST['first'],
-            'b' => $_POST['second']
+            'a' => $_POST['obj'],
+            'b' => $_POST['sub']
         );
         $sth->execute($params);
 
