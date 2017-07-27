@@ -4,7 +4,7 @@
 
 	if ( $_GET['action'] == 'show' ) {
 	
-	    $sth = $db->query("SELECT * FROM {$_POST['table']} ORDER BY {$_POST['table']}.id ASC");
+	    $sth = $db->query("SELECT * FROM {$_POST['table']} ORDER BY `order_id` ASC");
 	    $sth->execute();
 	    $info = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -12,10 +12,11 @@
 
 	} elseif ( $_GET['action'] == 'insert' ) {
 
-	    $sth = $db->prepare("INSERT INTO {$_POST['table']} (`id`, `type_id`, `title`, `text`) 
-	    					 VALUES (NULL, :style_id, 'TITLE', 'TEXT')");
+	    $sth = $db->prepare("INSERT INTO {$_POST['table']} (`id`, `type_id`, `title`, `text`, `order_id`) 
+	    					 VALUES (NULL, :type_id, 'TITLE', 'TEXT', :order_id)");
      	$params = array(
-            'style_id' => $_POST['style_id'],
+            'type_id' => $_POST['type_id'],
+            'order_id' => $_POST['order_id'],
         );
         $sth->execute($params);
         
@@ -27,11 +28,10 @@
 
 	} elseif ( $_GET['action'] == 'remove' ) {
 	
-		echo($_POST['id']);
-	    $sth = $db->prepare("INSERT INTO `list_remove` (`id`, `type_id`, `title`, `text`) 
-	    					 VALUES (NULL, :type_id, :title, :text)");
+	    $sth = $db->prepare("INSERT INTO `list_remove` (`id`, `type`, `title`, `text`) 
+	    					 VALUES (NULL, :type, :title, :text)");
      	$params = array(
-            'type_id' => $_POST['type_id'],
+            'type' => $_POST['type'],
             'title' => $_POST['title'],
             'text' => $_POST['text'],
         );
@@ -53,14 +53,24 @@
         $sth->execute($params);
 
 	} elseif ( $_GET['action'] == 'swap' ) {
-		
-		$sth = $db->prepare("UPDATE {$_POST['table']}  SET id = '9999' WHERE id = :a;
-							 UPDATE {$_POST['table']}  SET id = :a WHERE id = :b;
-							 UPDATE {$_POST['table']}  SET id = :b WHERE id = 9999;");
-     	$params = array(
-            'a' => $_POST['obj'],
-            'b' => $_POST['sub']
-        );
+		$params = array(
+            'obj_id' => $_POST['obj_id'],
+            'sub_order_id' => $_POST['sub_order_id']
+    	);
+
+		if($_POST['cl'] == 'arrow start') {
+            $sth = $db->prepare("UPDATE {$_POST['table']}  SET order_id = :sub_order_id - 1 WHERE id = :obj_id;");
+
+        } else if ($_POST['cl'] == 'arrow end') {
+            $sth = $db->prepare("UPDATE {$_POST['table']}  SET order_id = :sub_order_id + 1 WHERE id = :obj_id;");     
+
+        } else if ( ($_POST['cl'] == 'arrow up') || ($_POST['cl'] == 'arrow down') ) {
+            $sth = $db->prepare("UPDATE {$_POST['table']}  SET order_id = :sub_order_id WHERE id = :obj_id;
+								 UPDATE {$_POST['table']}  SET order_id = :obj_order_id WHERE id = :sub_id;");
+            $params['obj_order_id'] = $_POST['obj_order_id'];
+            $params['sub_id'] = $_POST['sub_id'];
+        }
+
         $sth->execute($params);
 
 	}

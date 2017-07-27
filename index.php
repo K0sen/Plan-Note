@@ -25,7 +25,7 @@
         // echo $c;
 ?>
 
-    <div id="top">
+    <div id="header">
         <div id="info">info</div>
         <div id="authentication"">
             <span id="register">Register</span>

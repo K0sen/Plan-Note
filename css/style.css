@@ -11,7 +11,7 @@ hr {
 	margin: 10px 0;
 }
 
-#top {
+#header {
 	height: 40px;
 }
 
@@ -23,19 +23,27 @@ hr {
 	float: right;
 }
 
+#wait {
+	text-align: center;
+	padding-top: 250px;
+}
+
 #wrapper {
-	margin: 10px;
+	margin: 10px auto;
 }
 
 #main {
 	display: inline-block;
-	width: 97%;
+	width: 100%;
+	text-align: center;
 }
 
+/*RIGHT-SECTOR 	 		in develop*/
 #right {
-	display: inline-block;
+	/*display: inline-block;*/
+	display: none;
 	float: right;
-	width: 3%;
+	width: 35px;
 	text-align: right;
 }
 
@@ -50,10 +58,13 @@ hr {
 	margin-right: 5px;
 }
 
+/*TOPIC*/
 .topic {
-	padding: 5px;
+	display: inline-block;
 	float: left;
-	width: 24%;
+	padding: 5px;
+	width: 23.95%;
+	text-align: left;
 }
 
 .topic h1 {
@@ -81,6 +92,7 @@ hr {
 	color: white;
 }
 
+/*TASK*/
 .task {
 	display: block;
 	margin-top: 14px;
@@ -117,7 +129,7 @@ hr {
 	margin: 15px 7px;
 }
 
-/*title*/
+/*TASK title*/
 .title {
 	position: relative;
 	min-height: 80px;
@@ -243,7 +255,7 @@ hr {
 	cursor: pointer;
 }
 
-/*Text*/
+/*TASK text*/
 .task > .text {
 	white-space: pre-wrap; 
 	word-wrap: break-word;
@@ -255,9 +267,4 @@ hr {
 	width: inherit;
 	font-size: 17px;
 	font-weight: bold;
-}
-
-#wait {
-	text-align: center;
-	padding-top: 250px;
 }
