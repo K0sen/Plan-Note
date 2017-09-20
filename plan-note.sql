@@ -95,10 +95,10 @@ CREATE TABLE `list_remove` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `type`
+-- Структура таблицы `types`
 --
 
-CREATE TABLE `type` (
+CREATE TABLE `types` (
   `id` int(10) UNSIGNED NOT NULL,
   `type` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -107,7 +107,7 @@ CREATE TABLE `type` (
 -- Дамп данных таблицы `type`
 --
 
-INSERT INTO `type` (`id`, `type`) VALUES
+INSERT INTO `types` (`id`, `type`) VALUES
 (1, 'Mentality'),
 (2, 'Professionalism'),
 (3, 'Physical'),
@@ -133,7 +133,7 @@ ALTER TABLE `list_remove`
 --
 -- Индексы таблицы `type`
 --
-ALTER TABLE `type`
+ALTER TABLE `types`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -151,9 +151,9 @@ ALTER TABLE `list`
 ALTER TABLE `list_remove`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `type`
+-- AUTO_INCREMENT для таблицы `types`
 --
-ALTER TABLE `type`
+ALTER TABLE `types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -163,7 +163,7 @@ ALTER TABLE `type`
 -- Ограничения внешнего ключа таблицы `list`
 --
 ALTER TABLE `list`
-  ADD CONSTRAINT `list_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`);
+  ADD CONSTRAINT `list_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

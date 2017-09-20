@@ -15,7 +15,7 @@
 
         $db = DbConnection::getInstance()->getPdo();
 
-        $sth = $db->query("SELECT * FROM `type`");
+        $sth = $db->query("SELECT * FROM `types`");
         $sth->execute();
         $info = $sth->fetchAll(PDO::FETCH_ASSOC);
 
